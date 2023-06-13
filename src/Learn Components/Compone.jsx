@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
+import ClassComp from './classCompone/ClassComp'
 
-export class Compone extends Component {
-  render() {
-    return (
-      <div>Hello World</div>
-    )
-  }
+function Compone() {
+  return (
+    <div>Masukan <ClassComp /></div>
+  )
 }
 
 export default Compone

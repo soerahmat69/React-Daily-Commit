@@ -1,0 +1,2 @@
+## JSX vs JS
+sama sama melakukan rendering dan menuliskan syntax js, perbedaannya ialah pada jsx kita mampu menuliskan  element style html tidak dengan js hanya terlibat oleh property pada elemnt node nya, mudahnya kita dapat melakukan penulisan pada html di jsx sepertri snippet dahnamun lebih powerfull js kyanya 
