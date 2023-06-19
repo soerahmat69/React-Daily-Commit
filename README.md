@@ -8,5 +8,7 @@ REDC(React Daily Commit) is my repo, for how did growing up using React
   <li>Making Class Compo</li>
   <li>Making Functi Compo</li>
   <li>Making Conditional Advanced maybe</li>
+  <li>Making Rendering List keys map,filter</li>
+  <li>Making Function component reactive buttons </li>
 
 </ul>

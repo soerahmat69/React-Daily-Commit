@@ -3,6 +3,20 @@ import Compone from "./Compone";
 import { Composec } from "./Composec";
 import { useState } from "react";
 
+
+function Lists({warn,active}) {
+  // Mmembuat conditional untuk melakukan coditional pada data yang di inginkan 
+  // dari yag biasa menjadi di luar binasa pokoknya 
+  if(active){
+    return <li>{warn} 😪</li>
+}else{
+  return <li>Not Active 😂</li>
+}
+
+}
+
+
+
 // props adalah parameter pada pada komponen yang dapat 
 // di gunakan untuk melakukan penyimpanan sementara mungkin awokaokw
 // props sendiri di parameterkan dalam tipe object
@@ -37,7 +51,7 @@ SetActive(false)
   return (
     <>
       <Compone />
-      <form action="POST" onSubmit={clicked}>
+      <form onSubmit={clicked}>
         <input
           onChange={inputSubm}
           className="my-3 text-[15px] px-[30px] py-2 ring-1 ring-black rounded-md"
@@ -48,20 +62,10 @@ SetActive(false)
       <h1>Nama saya  : {username}</h1>
       <h1>Nama saya jika di klik : {showName}</h1>
       <Lists warn={showName} active={Active} />
+      <hr />
     </>
   );
 };
 
-function Lists({warn,active}) {
-  // Mmembuat conditional untuk melakukan coditional pada data yang di inginkan 
-  // dari yag biasa menjadi di luar binasa pokoknya 
-  if(active){
-    return <li>{warn} 😪</li>
-}else{
-  return <li>Not Active 😂</li>
-}
-
-
-}
 
 export default IndexLearnCompo;
