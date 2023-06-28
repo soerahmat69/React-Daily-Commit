@@ -11,5 +11,6 @@ REDC(React Daily Commit) is my repo, for how did growing up using React
   <li>Making Rendering List keys map,filter</li>
   <li>Making Function component reactive buttons </li>
   <li>Making Function component rendering component using props,  </li>
+  <li>Making reff hook count </li>
   
 </ul>

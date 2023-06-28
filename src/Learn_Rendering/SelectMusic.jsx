@@ -5,7 +5,7 @@
 function SelectMusic({onchange,value}) {
   return (
     <div> 
-      {/* karena gw genrenya rocknya maka gw buat disini aja,selera gw */}\
+      {/* karena gw genrenya rocknya maka gw buat disini aja,selera gw */}
       {/* dapat ide darimana sbenernya klo mau ya liat aja di roadmap.sh ntu pke alur  */}
             <select className=' ring-1 ring-black mx-3 my-2' value={value} onChange={onchange}>
                 <option value="PHONK">PHONK RSX</option>
