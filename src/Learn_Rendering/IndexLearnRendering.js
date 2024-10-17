@@ -3,7 +3,8 @@ import SelectMusic from "./SelectMusic";
 import { useEffect, useState } from "react";
 import { people } from "./Data";
 import { getImageUrl, Avatar } from "./getImage";
-import { Reff } from "./reff";
+import { Reff, ReffState } from "./reff";
+import HighOComponent from "./HighOComponent";
 // import { Reff } from "./Reff";
 // =======================================================================================================
 
@@ -157,6 +158,9 @@ export default function IndexLearnRendering() {
           <hr />
       <h1 className="text-[100px] text-center">Using Reff State</h1>
       <Reff />
+      <ReffState /><hr />
+      <h1 className="text-[100px] text-center">High O Component</h1>
+      <HighOComponent />
     </>
   );
 }

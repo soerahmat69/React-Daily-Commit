@@ -2,11 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Main } from './Main';
-
+import IndexRoutes from './LearnRouter/IndexRoutes';
+import { Provider } from 'react-redux';
+import store from './Ngeredux/store/store';
+import Porto from './Porto/Porto';
+import PortoSec from './Porto/PortoSec';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-        {/* <Porto/> */}
+        <PortoSec />
+        {/* <Provider store={store}>
         <Main/>
+        </Provider> */}
+        {/* <IndexRoutes /> */}
   </React.StrictMode>
 );
