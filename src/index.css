@@ -1,14 +1,5 @@
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* @import "./node_modules/nes.css/css/nes.css"; */
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
 @tailwind base;
 @tailwind components;
