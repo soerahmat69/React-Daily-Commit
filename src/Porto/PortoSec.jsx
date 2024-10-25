@@ -111,6 +111,8 @@ function PortoSec() {
     {
       project_name: "KUPINJAM",
       image_url: "",
+      link_preview:"",
+      link_dev:"https://github.com/berotot",
       position: "fullstack",
       desc_project:
         "This website is built to listen to selected music using a single page, can do next music and pause",
@@ -468,7 +470,7 @@ function PortoSec() {
           <h2>Follow me: </h2>
           <a
             className="w-6"
-            href="https://www.linkedin.com/in/surahmat-azis-454a72238/"
+            href="https://github.com/soerahmat69"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -481,7 +483,7 @@ function PortoSec() {
           </a>
           <a
             className="w-6"
-            href="https://www.linkedin.com/in/surahmat-azis-454a72238/"
+            href="https://www.linkedin.com/in/surahmat"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -495,7 +497,7 @@ function PortoSec() {
 
           <a
             className="w-6"
-            href="https://www.linkedin.com/in/surahmat-azis-454a72238/"
+            href="https://www.instagram.com/soxo_soerahmat"
             target="_blank"
             rel="noopener noreferrer"
           >
