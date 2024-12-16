@@ -19,14 +19,14 @@ export const BirdClip = ({ item, classname }) => {
   const clipBird = () => {
     let currentClip = b1;
     setInterval(() => {
-      // refclip.current.style.backgroundImage = `url(${currentClip})`;
+      refclip.current.style.backgroundImage = `url(${currentClip})`;
       currentClip = currentClip === b1 ? b2 : b1;
     }, 100); // 500ms = 0.5s
   };
-  useEffect(() => {
-    clipBird();
-  }, []);
-
+  // useEffect(() => {
+  //   clipBird();
+  // }, []);
+   clipBird()
   return (
     <motion.li
       variants={item}
@@ -199,13 +199,7 @@ function PortoSec() {
             style={{ backgroundImage: `url(${c2})` }}
             className="bg-cover bg-center  md:w-[60px] w-[50px] h-[110px] md:h-[140px]  absolute bottom-[180px] right-[20px] md:left-[220px]"
           />
-          <motion.li
-            variants={item}
-            transition={{ ease: "easeInOut", duration: 0.8 }}
-            whileInView={"open"}
-            style={{ backgroundImage: `url(${c2})` }}
-            className="bg-cover bg-center w-[60px] h-[140px] absolute bottom-20 right-20"
-          />
+        
         </motion.ul>
 
         <motion.h1
@@ -248,15 +242,15 @@ function PortoSec() {
 
           <BirdClip
             item={item}
-            classname={`bg-cover bg-center  w-[80px] h-[90px]  absolute  -inset-[200px]  mx-auto`}
+            classname={`bg-cover bg-center  md:w-[60px] w-[50px] h-[60px] md:h-[70px]  absolute  -inset-[200px]  mx-auto`}
           />
           <BirdClip
             item={item}
-            classname={`bg-cover bg-center  w-[80px] h-[90px]  absolute  -inset-[250px] left-10 mx-auto`}
+            classname={`bg-cover bg-center  md:w-[60px] w-[50px] h-[60px] md:h-[70px]  absolute  -inset-[250px] left-10 mx-auto`}
           />
           <BirdClip
             item={item}
-            classname={`bg-cover bg-center  w-[80px] h-[90px]  absolute  -inset-[120px] left-10 mx-auto`}
+            classname={`bg-cover bg-center  md:w-[60px] w-[50px] h-[60px] md:h-[70px]  absolute  -inset-[120px] left-10 mx-auto`}
           />
 
           <motion.li
@@ -304,14 +298,14 @@ function PortoSec() {
 
           <BirdClip
             item={item}
-            classname={`bg-cover bg-center  w-[60px] h-[70px]  absolute bottom-[10px] left-[220px]`}
+            classname={`bg-cover bg-center  md:w-[60px] w-[50px] h-[60px] md:h-[70px]  absolute bottom-[10px] left-[220px]`}
           />
           <motion.li
             variants={item}
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             style={{ backgroundImage: `url(${c2})` }}
-            className="bg-cover bg-center  w-[50px] h-[120px]  absolute bottom-[180px] left-[220px]"
+            className="bg-cover bg-center   md:w-[60px] w-[50px] h-[110px] md:h-[140px]  absolute bottom-[180px] left-[220px]"
           />
 
           <motion.li
@@ -319,7 +313,7 @@ function PortoSec() {
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             style={{ backgroundImage: `url(${c2})` }}
-            className="bg-cover bg-center w-[60px] h-[140px] absolute bottom-20 right-20"
+            className="bg-cover bg-center  md:w-[60px] w-[50px] h-[110px] md:h-[140px] absolute bottom-20 left-10"
           />
         </motion.ul>
 
@@ -379,28 +373,28 @@ function PortoSec() {
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             style={{ backgroundImage: `url(${c1})` }}
-            className="bg-cover bg-center  w-[60px] h-[140px]  absolute top-20 left-20"
+            className="bg-cover bg-center   md:w-[60px] w-[50px] h-[110px] md:h-[140px]  absolute top-20 left-20"
           />
           <motion.li
             variants={item}
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             ref={refclip}
-            className="bg-cover bg-center  w-[60px] h-[70px]  absolute bottom-[10px] left-[220px]"
+            className="bg-cover bg-center   md:w-[60px] w-[50px] h-[110px] md:h-[140px]  absolute bottom-[10px] left-[220px]"
           />
           <motion.li
             variants={item}
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             style={{ backgroundImage: `url(${c2})` }}
-            className="bg-cover bg-center  w-[50px] h-[120px]  absolute bottom-[180px] left-[220px]"
+            className="bg-cover bg-center   md:w-[60px] w-[50px] h-[110px] md:h-[140px]  absolute bottom-[180px] left-[220px]"
           />
           <motion.li
             variants={item}
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             style={{ backgroundImage: `url(${c2})` }}
-            className="bg-cover bg-center w-[60px] h-[140px] absolute bottom-20 right-20"
+            className="bg-cover bg-center  md:w-[60px] w-[50px] h-[110px] md:h-[140px] absolute bottom-20 right-20"
           />
         </motion.ul>
 
@@ -414,7 +408,7 @@ function PortoSec() {
             <motion.li variants={itemSkill} className="">
               <div
                 style={{ borderColor: "#535353" }}
-                className=" hover:scale-[1.2] transition-all delay-200  nes-container with-title  py-4   w-[19rem] "
+                className=" scale-[0.9] md:scale-[1] hover:scale-[1.2] transition-all delay-200  nes-container with-title  py-4   w-[19rem] "
               >
                 <p className="title font-['Press_Start_2P']  text-[1rem]">
                   <TextAnim baseText={`${result.position} dev`} />
@@ -463,7 +457,7 @@ function PortoSec() {
           initial={{ y: 70, opacity: 0 }}
           whileInView={{ y: -70, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.4 }}
-          className="  font-['Press_Start_2P'] my-[5rem] -mb-[70px] text-[3.3rem] uppercase tracking-[0.2em]"
+          className="font-['Press_Start_2P'] text-center my-[5rem] -mb-[70px] text-[2rem] md:text-[3.3rem] uppercase tracking-[0.2em]"
         >
           Project
         </motion.h1>
@@ -476,7 +470,7 @@ function PortoSec() {
         <div className="flex gap-4 ">
           <h2>Follow me: </h2> 
           <a
-            className="w-6"
+            className="w-4 md:w-6"
             href="https://github.com/soerahmat69"
             target="_blank"
             rel="noopener noreferrer"
@@ -489,7 +483,7 @@ function PortoSec() {
             </svg>
           </a>
           <a
-            className="w-6"
+            className="w-4 md:w-6"
             href="https://www.linkedin.com/in/surahmat"
             target="_blank"
             rel="noopener noreferrer"
@@ -502,7 +496,7 @@ function PortoSec() {
             </svg>
           </a>
           <a
-            className="w-6"
+            className="w-4 md:w-6"
             href="https://www.instagram.com/soxo_soerahmat"
             target="_blank"
             rel="noopener noreferrer"
@@ -515,7 +509,7 @@ function PortoSec() {
             </svg>
           </a>
           <a
-            className="w-7"
+            className="w-4 md:w-6"
             href="https://www.linkedin.com/in/surahmat-azis-454a72238/"
             target="_blank"
             rel="noopener noreferrer"
