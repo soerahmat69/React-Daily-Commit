@@ -12,6 +12,7 @@ import thumb from "./thumbnail.png";
 import { useEffect, useRef, useState } from "react";
 import { h1, img } from "framer-motion/client";
 import TextAnim, { TextAnimCountDown } from "./Component/TextAnim";
+import { SkillMed, SkillSmall } from "./Skill";
 
 export const BirdClip = ({ item, classname }) => {
   const refclip = useRef(false);
@@ -188,7 +189,7 @@ function PortoSec() {
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             style={{ backgroundImage: `url(${c1})` }}
-            className="bg-cover bg-center  w-[60px] h-[140px]  absolute top-20 left-20"
+            className="bg-cover bg-center  md:w-[60px] w-[50px] h-[110px] md:h-[140px]  absolute top-20 left-20"
           />
 
           <motion.li
@@ -196,7 +197,7 @@ function PortoSec() {
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             style={{ backgroundImage: `url(${c2})` }}
-            className="bg-cover bg-center  w-[50px] h-[120px]  absolute bottom-[180px] left-[220px]"
+            className="bg-cover bg-center  md:w-[60px] w-[50px] h-[110px] md:h-[140px]  absolute bottom-[180px] right-[20px] md:left-[220px]"
           />
           <motion.li
             variants={item}
@@ -211,7 +212,7 @@ function PortoSec() {
           initial={{ y: 70, opacity: 0 }}
           whileInView={{ y: -70, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.6 }}
-          className="font-['Press_Start_2P'] -mb-[60px] text-[2.2rem] md:text-[2.7rem] xl:text-[3.5rem] uppercase tracking-[0.2em]"
+          className="font-['Press_Start_2P'] -mb-[60px] text-[2rem] md:text-[2.7rem] xl:text-[3.5rem] uppercase tracking-[0.2em]"
         >
           Fullstack Web Dev.
         </motion.h1>
@@ -219,7 +220,7 @@ function PortoSec() {
           initial={{ y: 10, opacity: 0 }}
           whileInView={{ y: -10, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.6 }}
-          className="font-['Press_Start_2P'] sm:text-[2rem] text-[1.5rem] font-light uppercase tracking-[0.2em]"
+          className="font-['Press_Start_2P'] sm:text-[2rem] text-[1.3rem] font-light uppercase tracking-[0.2em]"
         >
           Surahmat
         </motion.p>
@@ -242,7 +243,7 @@ function PortoSec() {
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             style={{ backgroundImage: `url(${c1})` }}
-            className="bg-cover bg-center  w-[60px] h-[140px]  absolute top-20 left-20"
+            className="bg-cover bg-center  md:w-[60px] w-[50px] h-[110px] md:h-[140px]  absolute top-20  left-12"
           />
 
           <BirdClip
@@ -263,45 +264,18 @@ function PortoSec() {
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             style={{ backgroundImage: `url(${c2})` }}
-            className="bg-cover bg-center  w-[50px] h-[120px]  absolute bottom-[180px] left-[220px]"
+            className="bg-cover bg-center  md:w-[60px] w-[50px] h-[110px] md:h-[140px]  absolute bottom-[180px] left-[220px]"
           />
 
-          {/* <motion.li
-            variants={item}
-            transition={{ ease: "easeInOut", duration: 0.8 }}
-            whileInView={"open"}
-            style={{ backgroundImage: `url(${c2})` }}
-            className="bg-cover bg-center w-[60px] h-[140px] absolute bottom-20 right-20"
-          /> */}
+          
         </motion.ul>
 
-        <motion.ul
-          initial="closed"
-          whileInView="open"
-          variants={listSkill}
-          className="flex mx-auto gap-4  "
-        >
-          {skill.map((result) =>
-            skill.indexOf(result) <= countSkills.skillUP ? (
-              <motion.li
-                // key={result.id}
-                variants={itemSkill}
-                style={{ borderColor: "#535353" }}
-                className=" nes-container   w-[190px] with-title  "
-              >
-                <p className=" title font-['Press_Start_2P']  text-center text-[0.9rem] ">
-                  <TextAnimCountDown lastCount={result.value} /> %
-                </p>
-                <img className="w-full" src={result.img} alt="js" srcset="" />
-                <p className=" font-bold font-['Press_Start_2P']  text-center text-[0.9rem] ">
-                  <TextAnim baseText={result.name} />
-                </p>
-              </motion.li>
-            ) : (
-              ""
-            )
-          )}
-        </motion.ul>
+ 
+  <SkillSmall  listSkill={listSkill} itemSkill={itemSkill} position={"top"} />
+ 
+ 
+  <SkillMed  listSkill={listSkill} itemSkill={itemSkill} position={"top"} />
+ 
 
         <motion.h1
           initial={{ y: 70, opacity: 0 }}
@@ -312,33 +286,9 @@ function PortoSec() {
           Skill
         </motion.h1>
 
-        <motion.ul
-          initial="closed"
-          whileInView="open"
-          variants={listSkill}
-          className="flex mx-auto gap-4  "
-        >
-          {skill.map((result) => {
-            return skill.indexOf(result) > countSkills.skillUP && skill.indexOf(result) <= countSkills.skillDown ? (
-              
-              <motion.li
-                variants={itemSkill}
-                style={{ borderColor: "#535353" }}
-                className=" nes-container   w-[190px] with-title  "
-              >
-                <p className=" title font-['Press_Start_2P']  text-center text-[0.9rem] ">
-                  <TextAnimCountDown lastCount={result.value  } /> % {countSkills.skillUP}
-                </p>
-                <img className="w-full" src={result.img} alt="js" srcset="" />
-                <p className=" font-bold font-['Press_Start_2P']  text-center text-[0.9rem] ">
-                  <TextAnim baseText={result.name} />
-                </p>
-              </motion.li>
-            ) : (
-              ""
-            );
-          })}
-        </motion.ul>
+        <SkillSmall  listSkill={listSkill} itemSkill={itemSkill} position={"bot"} />
+        <SkillMed  listSkill={listSkill} itemSkill={itemSkill} position={"bot"} />
+
       </section>
 
       <section className=" text-[#535353] h-screen w-screen flex flex-col justify-center">
@@ -349,7 +299,7 @@ function PortoSec() {
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             style={{ backgroundImage: `url(${c1})` }}
-            className="bg-cover bg-center  w-[60px] h-[140px]  absolute top-20 left-20"
+            className="bg-cover bg-center  md:w-[60px] w-[50px] h-[110px] md:h-[140px]  absolute -top-24 left-20"
           />
 
           <BirdClip
@@ -513,18 +463,18 @@ function PortoSec() {
           initial={{ y: 70, opacity: 0 }}
           whileInView={{ y: -70, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.4 }}
-          className="font-[''] my-[5rem] -mb-[70px] text-[3.3rem] uppercase tracking-[0.2em]"
+          className="  font-['Press_Start_2P'] my-[5rem] -mb-[70px] text-[3.3rem] uppercase tracking-[0.2em]"
         >
           Project
         </motion.h1>
       </section>
 
-      <footer className="w-full text-[white] py-10 px-40 font-['Press_Start_2P'] bg-[#535353] h-auto]">
+      <footer className="w-full  md:text-[1rem] text-[0.5rem] text-[white] py-10 px-10 md:px-40 font-['Press_Start_2P'] bg-[#535353] h-auto]">
         <div className="w-full ">
-          <h1 className=" text-20 ">Surahmat</h1>
+          <h1 className=" ">Surahmat</h1>
         </div>
-        <div className="flex gap-4">
-          <h2>Follow me: </h2>Press_Start_2P
+        <div className="flex gap-4 ">
+          <h2>Follow me: </h2> 
           <a
             className="w-6"
             href="https://github.com/soerahmat69"
@@ -579,7 +529,7 @@ function PortoSec() {
             </svg>{" "}
           </a>
         </div>
-        <h1 className="text-[0.8rem] mt-10">@Copyright in 2024</h1>
+        <h1 className="text-[0.8rem] mt-10 text-center">@Copyright in 2024</h1>
       </footer>
     </main>
   );
