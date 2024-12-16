@@ -9,37 +9,37 @@ import html from "./Html.png";
 import php from "./PHP.png";
 import react from "./React.png";
 import thumb from "./thumbnail.png";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { h1, img } from "framer-motion/client";
 import TextAnim, { TextAnimCountDown } from "./Component/TextAnim";
 
-export const BirdClip = ({item,classname}) => {
+export const BirdClip = ({ item, classname }) => {
   const refclip = useRef(false);
   const clipBird = () => {
     let currentClip = b1;
     setInterval(() => {
-      refclip.current.style.backgroundImage = `url(${currentClip})`;
+      // refclip.current.style.backgroundImage = `url(${currentClip})`;
       currentClip = currentClip === b1 ? b2 : b1;
     }, 100); // 500ms = 0.5s
   };
   useEffect(() => {
     clipBird();
-
   }, []);
 
   return (
     <motion.li
-    variants={item}
-    transition={{ ease: "easeInOut", duration: 0.8 }}
-    whileInView={"open"}
-    ref={refclip}
-    className={classname}
-  />
-  )
-}
+      variants={item}
+      transition={{ ease: "easeInOut", duration: 0.8 }}
+      whileInView={"open"}
+      ref={refclip}
+      className={classname}
+    />
+  );
+};
 
 function PortoSec() {
   document.title = "Portoku";
+  const [countSkills, setCountSkills] = useState({ skillUP: 2, skillDown: 4 });
   const list = {
     hidden: {
       transition: {
@@ -72,29 +72,8 @@ function PortoSec() {
     open: { opacity: 1, x: 0 },
     closed: { opacity: 0, x: -100 },
   };
-  const refclip = useRef(false); 
-  const skill = [
-    {
-      name: "css",
-      img: html,
-      value: 80,
-    },
-    {
-      name: "javascript",
-      img: js,
-      value: 90,
-    },
-    {
-      name: "php",
-      img: php,
-      value: 80,
-    },
-    {
-      name: "react",
-      img: react,
-      value: 90,
-    },
-  ];
+  const refclip = useRef(false);
+
   const experience = [
     {
       position: "It Support",
@@ -111,8 +90,8 @@ function PortoSec() {
     {
       project_name: "KUPINJAM",
       image_url: "",
-      link_preview:"",
-      link_dev:"https://github.com/berotot",
+      link_preview: "",
+      link_dev: "https://github.com/berotot",
       position: "fullstack",
       desc_project:
         "This website is built to listen to selected music using a single page, can do next music and pause",
@@ -143,7 +122,54 @@ function PortoSec() {
       tech: ["reactjs", "tailwindcss", "expressjs", "mysql"],
     },
   ];
- 
+
+  const skill = [
+    {
+      name: "tailwindcss",
+      img: html,
+      value: 80,
+    },
+    {
+      name: "javascript",
+      img: js,
+      value: 90,
+    },
+    {
+      name: "php",
+      img: php,
+      value: 80,
+    },
+    {
+      name: "react",
+      img: react,
+      value: 90,
+    },
+    {
+      name: "vue",
+      img: react,
+      value: 90,
+    },
+  ];
+
+  const screenWidth = window.innerWidth;
+  useEffect(() => {
+    return ()=>{
+    if (screenWidth >= 1280) {
+      // Tailwind's xl breakpoint
+
+      setCountSkills({ ...countSkills, skillUP: 2,skillDown:5 });
+    } else if (screenWidth >= 768) {
+      // Tailwind's md breakpoint
+
+      setCountSkills({ ...countSkills, skillUP: 2,skillDown:5 });
+      
+    } else {
+      setCountSkills({ ...countSkills, skillUP: 1,skillDown:3 });
+      // Tailwind's sm and below 
+    }
+  }
+  }, [screenWidth]);
+
   const clipBirds = () => {
     let currentClip = b1;
     setInterval(() => {
@@ -151,7 +177,6 @@ function PortoSec() {
       currentClip = currentClip === b1 ? b2 : b1;
     }, 100);
   };
-
 
   return (
     <main className=" overflow-x-hidden lg:mx-auto">
@@ -165,8 +190,8 @@ function PortoSec() {
             style={{ backgroundImage: `url(${c1})` }}
             className="bg-cover bg-center  w-[60px] h-[140px]  absolute top-20 left-20"
           />
-        
-           <motion.li
+
+          <motion.li
             variants={item}
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
@@ -186,7 +211,7 @@ function PortoSec() {
           initial={{ y: 70, opacity: 0 }}
           whileInView={{ y: -70, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.6 }}
-          className="font-['Press_Start_2P'] -mb-[60px] text-[3.5rem] uppercase tracking-[0.2em]"
+          className="font-['Press_Start_2P'] -mb-[60px] text-[2.2rem] md:text-[2.7rem] xl:text-[3.5rem] uppercase tracking-[0.2em]"
         >
           Fullstack Web Dev.
         </motion.h1>
@@ -194,7 +219,7 @@ function PortoSec() {
           initial={{ y: 10, opacity: 0 }}
           whileInView={{ y: -10, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.6 }}
-          className="font-['Press_Start_2P']  text-[2rem] font-light uppercase tracking-[0.2em]"
+          className="font-['Press_Start_2P'] sm:text-[2rem] text-[1.5rem] font-light uppercase tracking-[0.2em]"
         >
           Surahmat
         </motion.p>
@@ -203,13 +228,13 @@ function PortoSec() {
           initial={{ y: -10, opacity: 0 }}
           whileInView={{ y: 10, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.6 }}
-          className="font-['Press_Start_2P'] text-[1rem] -mt-4 cursor-pointer underline tracking-[0.2em]"
+          className="font-['Press_Start_2P'] text-[0.8rem] md:text-[1rem] -mt-4 cursor-pointer underline tracking-[0.2em]"
         >
           Download CV
         </motion.h2>
       </section>
 
-      <section className="text-center my-10 text-[#535353] h-screen w-screen flex flex-col justify-center">
+      <section className="text-center my-10 text-[#535353] h-screen md:h-screen w-screen flex flex-col justify-center">
         <motion.ul animate="close" className="relative" variants={list}>
           <motion.li
             initial={"close"}
@@ -220,10 +245,19 @@ function PortoSec() {
             className="bg-cover bg-center  w-[60px] h-[140px]  absolute top-20 left-20"
           />
 
-          <BirdClip item={item} classname={`bg-cover bg-center  w-[80px] h-[90px]  absolute  -inset-[200px]  mx-auto`} />
-          <BirdClip item={item} classname={`bg-cover bg-center  w-[80px] h-[90px]  absolute  -inset-[250px] left-10 mx-auto`} />
-          <BirdClip item={item} classname={`bg-cover bg-center  w-[80px] h-[90px]  absolute  -inset-[120px] left-10 mx-auto`} />
-        
+          <BirdClip
+            item={item}
+            classname={`bg-cover bg-center  w-[80px] h-[90px]  absolute  -inset-[200px]  mx-auto`}
+          />
+          <BirdClip
+            item={item}
+            classname={`bg-cover bg-center  w-[80px] h-[90px]  absolute  -inset-[250px] left-10 mx-auto`}
+          />
+          <BirdClip
+            item={item}
+            classname={`bg-cover bg-center  w-[80px] h-[90px]  absolute  -inset-[120px] left-10 mx-auto`}
+          />
+
           <motion.li
             variants={item}
             transition={{ ease: "easeInOut", duration: 0.8 }}
@@ -232,13 +266,13 @@ function PortoSec() {
             className="bg-cover bg-center  w-[50px] h-[120px]  absolute bottom-[180px] left-[220px]"
           />
 
-          <motion.li
+          {/* <motion.li
             variants={item}
             transition={{ ease: "easeInOut", duration: 0.8 }}
             whileInView={"open"}
             style={{ backgroundImage: `url(${c2})` }}
             className="bg-cover bg-center w-[60px] h-[140px] absolute bottom-20 right-20"
-          />
+          /> */}
         </motion.ul>
 
         <motion.ul
@@ -247,31 +281,35 @@ function PortoSec() {
           variants={listSkill}
           className="flex mx-auto gap-4  "
         >
-          {skill.map((result) => (
-            <motion.li
-              variants={itemSkill}
-              style={{ borderColor: "#535353" }}
-              className=" nes-container   w-[190px] with-title  "
-            >
-              <p className=" title font-['Press_Start_2P']  text-center text-[0.9rem] ">
-                <TextAnimCountDown lastCount={result.value} /> %
-              </p>
-              <img className="w-full" src={result.img} alt="js" srcset="" />
-              <p className=" font-bold font-['Press_Start_2P']  text-center text-[0.9rem] ">
-                
-                <TextAnim baseText={result.name} />
-              </p>
-            </motion.li>
-          ))}
+          {skill.map((result) =>
+            skill.indexOf(result) <= countSkills.skillUP ? (
+              <motion.li
+                // key={result.id}
+                variants={itemSkill}
+                style={{ borderColor: "#535353" }}
+                className=" nes-container   w-[190px] with-title  "
+              >
+                <p className=" title font-['Press_Start_2P']  text-center text-[0.9rem] ">
+                  <TextAnimCountDown lastCount={result.value} /> %
+                </p>
+                <img className="w-full" src={result.img} alt="js" srcset="" />
+                <p className=" font-bold font-['Press_Start_2P']  text-center text-[0.9rem] ">
+                  <TextAnim baseText={result.name} />
+                </p>
+              </motion.li>
+            ) : (
+              ""
+            )
+          )}
         </motion.ul>
 
         <motion.h1
           initial={{ y: 70, opacity: 0 }}
           whileInView={{ y: -70, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.6 }}
-          className="font-['Press_Start_2P'] my-[5rem] -mb-[70px] text-[3.6rem] uppercase tracking-[0.2em]"
+          className="font-['Press_Start_2P'] my-[5rem] -mb-[70px] text-[2.6rem] md:text-[3.6rem] uppercase tracking-[0.2em]"
         >
-          Skill.
+          Skill
         </motion.h1>
 
         <motion.ul
@@ -280,21 +318,26 @@ function PortoSec() {
           variants={listSkill}
           className="flex mx-auto gap-4  "
         >
-          {skill.map((result) => (
-            <motion.li
-              variants={itemSkill}
-              style={{ borderColor: "#535353" }}
-              className=" nes-container   w-[190px] with-title  "
-            >
-              <p className=" title font-['Press_Start_2P']  text-center text-[0.9rem] ">
-                {result.value}%
-              </p>
-              <img className="w-full" src={result.img} alt="js" srcset="" />
-              <p className=" font-bold font-['Press_Start_2P']  text-center text-[0.9rem] ">
-                {result.name}
-              </p>
-            </motion.li>
-          ))}
+          {skill.map((result) => {
+            return skill.indexOf(result) > countSkills.skillUP && skill.indexOf(result) <= countSkills.skillDown ? (
+              
+              <motion.li
+                variants={itemSkill}
+                style={{ borderColor: "#535353" }}
+                className=" nes-container   w-[190px] with-title  "
+              >
+                <p className=" title font-['Press_Start_2P']  text-center text-[0.9rem] ">
+                  <TextAnimCountDown lastCount={result.value  } /> % {countSkills.skillUP}
+                </p>
+                <img className="w-full" src={result.img} alt="js" srcset="" />
+                <p className=" font-bold font-['Press_Start_2P']  text-center text-[0.9rem] ">
+                  <TextAnim baseText={result.name} />
+                </p>
+              </motion.li>
+            ) : (
+              ""
+            );
+          })}
         </motion.ul>
       </section>
 
@@ -308,8 +351,11 @@ function PortoSec() {
             style={{ backgroundImage: `url(${c1})` }}
             className="bg-cover bg-center  w-[60px] h-[140px]  absolute top-20 left-20"
           />
-      
-          <BirdClip item={item} classname={`bg-cover bg-center  w-[60px] h-[70px]  absolute bottom-[10px] left-[220px]`} />
+
+          <BirdClip
+            item={item}
+            classname={`bg-cover bg-center  w-[60px] h-[70px]  absolute bottom-[10px] left-[220px]`}
+          />
           <motion.li
             variants={item}
             transition={{ ease: "easeInOut", duration: 0.8 }}
@@ -317,6 +363,7 @@ function PortoSec() {
             style={{ backgroundImage: `url(${c2})` }}
             className="bg-cover bg-center  w-[50px] h-[120px]  absolute bottom-[180px] left-[220px]"
           />
+
           <motion.li
             variants={item}
             transition={{ ease: "easeInOut", duration: 0.8 }}
@@ -368,7 +415,7 @@ function PortoSec() {
           initial={{ y: 70, opacity: 0 }}
           whileInView={{ y: -70, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.6 }}
-          className="font-['Press_Start_2P'] text-center my-[5rem] -mb-[70px] text-[3.3rem] uppercase tracking-[0.2em]"
+          className="font-['Press_Start_2P'] text-center my-[5rem] -mb-[70px] text-[2rem] md:text-[3.3rem] uppercase tracking-[0.2em]"
         >
           Experience
         </motion.h1>
@@ -414,39 +461,49 @@ function PortoSec() {
           className="flex mx-auto gap-4  "
         >
           {projects.map((result) => (
-            <motion.li
-              variants={itemSkill}
-              className=""
-            >
-              <div      style={{ borderColor: "#535353", }}
-              className=" hover:scale-[1.2] transition-all delay-200  nes-container with-title  py-4   w-[19rem] "
-         >
-              <p className="title font-['Press_Start_2P']  text-[1rem]">
-                <TextAnim baseText={`${result.position} dev`} />
-              </p>
+            <motion.li variants={itemSkill} className="">
               <div
-                style={{ borderColor:"#535353",padding:"0px 0px 0px 0px",backgroundImage:`url('${thumb}')` }}
-                className="nes-container  	 mb-4 flex flex-col justify-center w-full is-rounded   h-[16rem]  "
+                style={{ borderColor: "#535353" }}
+                className=" hover:scale-[1.2] transition-all delay-200  nes-container with-title  py-4   w-[19rem] "
               >
-                <div className="w-full h-full bg-black opacity-60"></div>
-               
-<div className="absolute ">
-                <h1 className="font-['Press_Start_2P']  text-[0.9rem]  text-white">
-                  <TextAnim baseText={`${result.project_name}`} />
-                </h1>
-                <p className="text-[0.6rem]   text-white">
-                <TextAnim baseText={result.desc_project} />
-                  </p>
-                  </div>
-              </div>
+                <p className="title font-['Press_Start_2P']  text-[1rem]">
+                  <TextAnim baseText={`${result.position} dev`} />
+                </p>
+                <div
+                  style={{
+                    borderColor: "#535353",
+                    padding: "0px 0px 0px 0px",
+                    backgroundImage: `url('${thumb}')`,
+                  }}
+                  className="nes-container  	 mb-4 flex flex-col justify-center w-full is-rounded   h-[16rem]  "
+                >
+                  <div className="w-full h-full bg-black opacity-60"></div>
 
-              <ul style={{padding:"0 0 0 0",borderColor:"red",backgroundColor:"#535353",marginTop:"10px"}} className=" w-full   nes-container is-rounded is-dark font-['Press_Start_2P'] flex">
-                {result.tech.map((tech) => (
-                  <li className="py-3 px-5 text-[0.5rem]  ">
-                    <TextAnim baseText={`${tech}`} />
-                  </li>
-                ))}
-              </ul>
+                  <div className="absolute ">
+                    <h1 className="font-['Press_Start_2P']  text-[0.9rem]  text-white">
+                      <TextAnim baseText={`${result.project_name}`} />
+                    </h1>
+                    <p className="text-[0.6rem]   text-white">
+                      <TextAnim baseText={result.desc_project} />
+                    </p>
+                  </div>
+                </div>
+
+                <ul
+                  style={{
+                    padding: "0 0 0 0",
+                    borderColor: "red",
+                    backgroundColor: "#535353",
+                    marginTop: "10px",
+                  }}
+                  className=" w-full   nes-container is-rounded is-dark font-['Press_Start_2P'] flex"
+                >
+                  {result.tech.map((tech) => (
+                    <li className="py-3 px-5 text-[0.5rem]  ">
+                      <TextAnim baseText={`${tech}`} />
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.li>
           ))}
@@ -456,7 +513,7 @@ function PortoSec() {
           initial={{ y: 70, opacity: 0 }}
           whileInView={{ y: -70, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.4 }}
-          className="font-['Press_Start_2P'] my-[5rem] -mb-[70px] text-[3.3rem] uppercase tracking-[0.2em]"
+          className="font-[''] my-[5rem] -mb-[70px] text-[3.3rem] uppercase tracking-[0.2em]"
         >
           Project
         </motion.h1>
@@ -467,7 +524,7 @@ function PortoSec() {
           <h1 className=" text-20 ">Surahmat</h1>
         </div>
         <div className="flex gap-4">
-          <h2>Follow me: </h2>
+          <h2>Follow me: </h2>Press_Start_2P
           <a
             className="w-6"
             href="https://github.com/soerahmat69"
@@ -494,7 +551,6 @@ function PortoSec() {
               />
             </svg>
           </a>
-
           <a
             className="w-6"
             href="https://www.instagram.com/soxo_soerahmat"
@@ -525,7 +581,6 @@ function PortoSec() {
         </div>
         <h1 className="text-[0.8rem] mt-10">@Copyright in 2024</h1>
       </footer>
-
     </main>
   );
 }
