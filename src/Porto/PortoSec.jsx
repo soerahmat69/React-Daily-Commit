@@ -89,6 +89,16 @@ function PortoSec() {
   ];
   const projects = [
     {
+      project_name: "BEROTOT",
+      image_url: "",
+      link_preview: "https://musclemassapp.vercel.app",
+      link_dev: "https://github.com/berotot",
+      position: "fullstack",
+      desc_project:
+        "This website is designed as a fitness training platform utilizing a decision-making system.",
+      tech: ["reactjs", "tailwindcss", "expressjs", "mongodb"],
+    },
+    {
       project_name: "KUPINJAM",
       image_url: "",
       link_preview: "",
@@ -102,6 +112,8 @@ function PortoSec() {
       project_name: "MYUSIX",
       image_url: "",
       position: "frontend",
+      link_preview: "https://myusix.vercel.app/",
+      link_dev: "https://github.com/berotot",
       desc_project:
         "This website is built to listen to selected music using a single page, can do next music and pause",
       tech: ["react", "tailwindcss"],
@@ -109,6 +121,9 @@ function PortoSec() {
     {
       project_name: "MEDCOW",
       image_url: "",
+      
+      link_preview: "https://soerahmat69.github.io/MEDCOW/",
+      link_dev: "https://github.com/berotot",
       position: "frontend",
       desc_project:
         "This website identifies diseases in cattle by looking at the symptoms experienced by cows using dataset type json.",
@@ -406,7 +421,10 @@ function PortoSec() {
         >
           {projects.map((result) => (
             <motion.li variants={itemSkill} className="">
-              <div
+              <a
+                href={result.link_preview}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ borderColor: "#535353" }}
                 className=" scale-[0.9] md:scale-[1] hover:scale-[1.2] transition-all delay-200  nes-container with-title  py-4   w-[19rem] "
               >
@@ -448,7 +466,7 @@ function PortoSec() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </a>
             </motion.li>
           ))}
         </motion.ul>
