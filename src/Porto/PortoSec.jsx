@@ -98,16 +98,7 @@ function PortoSec() {
         "This website is designed as a fitness training platform utilizing a decision-making system.",
       tech: ["reactjs", "tailwindcss", "expressjs", "mongodb"],
     },
-    {
-      project_name: "KUPINJAM",
-      image_url: "",
-      link_preview: "",
-      link_dev: "https://github.com/berotot",
-      position: "fullstack",
-      desc_project:
-        "This website is built to listen to selected music using a single page, can do next music and pause",
-      tech: ["reactjs", "tailwindcss", "expressjs", "mongodb"],
-    },
+   
     {
       project_name: "MYUSIX",
       image_url: "",
