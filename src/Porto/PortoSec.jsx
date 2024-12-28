@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import { h1, img } from "framer-motion/client";
 import TextAnim, { TextAnimCountDown } from "./Component/TextAnim";
 import { SkillMed, SkillSmall } from "./Skill";
+import { Link, useNavigate } from "react-router-dom";
 
 export const BirdClip = ({ item, classname }) => {
   const refclip = useRef(false);
@@ -21,7 +22,7 @@ export const BirdClip = ({ item, classname }) => {
     setInterval(() => {
       refclip.current.style.backgroundImage = `url(${currentClip})`;
       currentClip = currentClip === b1 ? b2 : b1;
-    }, 100); // 500ms = 0.5s
+    }, 500); // 500ms = 0.5s
   };
   // useEffect(() => {
   //   clipBird();
@@ -74,7 +75,9 @@ function PortoSec() {
     closed: { opacity: 0, x: -100 },
   };
   const refclip = useRef(false);
-
+const navigate = useNavigate
+  // const navigo = (param)=> navigate(param)
+  
   const experience = [
     {
       position: "It Support",
@@ -411,15 +414,18 @@ function PortoSec() {
           className="flex mx-auto gap-4  "
         >
           {projects.map((result) => (
-            <motion.li variants={itemSkill} className="">
-              <a
-                href={result.link_preview}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ borderColor: "#535353" }}
-                className=" scale-[0.9] md:scale-[1] hover:scale-[1.2] transition-all delay-200  nes-container with-title  py-4   w-[19rem] "
-              >
-                <p className="title font-['Press_Start_2P']  text-[1rem]">
+            <motion.li 
+            onClick={()=>navigate(result.link_preview)}
+            variants={itemSkill} className="">
+              {/* <Link to={result.link_preview}/> */}
+              {/* <Link to={result.link_preview}> </Link> */}
+                <div
+           
+                  style={{ borderColor: "#535353" }}
+                  className="scale-[0.9] md:scale-[1] hover:scale-[1.2] transition-all delay-200  nes-container with-title  py-4   w-[19rem]"
+                >
+                  <a href={`${result.link_preview}`} rel="noopener noreferrer" target="_blank">
+                    <p className="title decoration font-['Press_Start_2P'] text-[1rem]">
                   <TextAnim baseText={`${result.position} dev`} />
                 </p>
                 <div
@@ -457,7 +463,9 @@ function PortoSec() {
                     </li>
                   ))}
                 </ul>
-              </a>
+                </a>
+              </div>
+
             </motion.li>
           ))}
         </motion.ul>
